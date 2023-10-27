@@ -1,17 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BooksController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::resource('books', BooksController::class);
+
+
+Route::get('/contact-us', [ContactController::class, 'index']);
+
+Route::get('/', LandingController::class);
+
+Route::get('/about', [AboutController::class, 'index']);
 
 Route::get('/', function () {
     return view('landing');
@@ -39,10 +41,13 @@ Route::get('users/{id?}', function ($id = -1) {
 })->where('id', '[0-9]+');
 
 Route::get('/hubungi-kami', function () {
-    return '<h3>Hubungi kami</h3>';
+     return view('contact') ;
+ });
+
+Route::get('/book', function () {
+    return view('book') ;
 });
 
-Route::redirect('/contact-us', '/hubungi-kami', 301);
 
 Route::prefix('/admin')->group(function () {
     Route::get('/mahasiswa', function () {
@@ -60,9 +65,44 @@ Route::fallback(function () {
     return "Wah kamu nyasar, turn back!";
 });
 
+
 Route::get('/about', function () {
     $title = 'About Us';
     $description = 'Blogging is website for sharing your thoughts and ideas with the world.';
-    return view('about', compact('title', 'description'));
-});
+    $button = '<a class="btn btn-lg btn-secondary" href="/">Back to Landing Page</a>';
+    
 
+    $sponsors = [
+        [
+            "name" => "Google",
+            "image" => "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png",
+            "link" => "https://www.google.com"
+        ],
+        [
+            "name" => "STMIK LIKMI",
+            "image" => "https://likmi.ac.id/wp-content/uploads/2018/09/Logo200.png",
+            "link" => "https://likmi.ac.id"
+        ],
+        [
+            "name" => "KFC",
+            "image" => "https://assets.stickpng.com/images/58429977a6515b1e0ad75ade.png",
+            "link" => "https://kfcku.com/"
+        ],
+        [
+            "name" => "Coca Cola",
+            "image" => "https://companieslogo.com/img/orig/KO-b23a2a5e.png?t=1684129869",
+            "link" => "https://www.coca-cola.com/"
+        ],
+        [
+            "name" => "Youtube",
+            "image" => "https://img.freepik.com/premium-vector/red-youtube-logo-social-media-logo_197792-1803.jpg?w=2000",
+            "link" => "https://about.youtube//"
+        ],
+        [
+            "name" => "Pepsi",
+            "image" => "https://seeklogo.com/images/P/pepsi-logo-94D7DEF922-seeklogo.com.png",
+            "link" => "https://www.pepsi.com/"
+        ]
+    ];
+    return view('about', compact('title', 'description', 'button', 'sponsors'));
+});

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') UTS - 2020110059</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 </head>
 
@@ -17,7 +17,7 @@
                     <a class="link-secondary" href="#">Subscribe</a>
                 </div>
                 <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="#">Large</a>
+                    <a class="blog-header-logo text-dark" href="/">PBWL</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <a class="link-secondary" href="#" aria-label="Search">
@@ -46,8 +46,8 @@
                 <a class="p-2 link-secondary" href="#">Opinion</a>
                 <a class="p-2 link-secondary" href="#">Science</a>
                 <a class="p-2 link-secondary" href="#">Health</a>
-                <a class="p-2 link-secondary" href="#">Style</a>
-                <a class="p-2 link-secondary" href="#">Travel</a>
+                <a class="p-2 link-secondary" href="/about">About</a>
+                <a class="p-2 link-secondary" href="/contact-us">Contact-Us</a>
             </nav>
         </div>
     </div>
@@ -57,7 +57,7 @@
     </main>
 
     <footer class="blog-footer mt-4">
-        <p>Blog template built for <a href="/">T1-2020110059</a> <a
+        <p>Blog template built for <a href="/">UTS-2020110059</a> <a
                 href="https://twitter.com/mdo"></a></p>
         <p>
             <a href="">Back to top</a>

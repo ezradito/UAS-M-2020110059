@@ -17,7 +17,7 @@
         </div>
     @else
         <div class="alert alert-warning mt-2" role="alert">
-            Subscribe to our newsletter now!
+            Subscribe to our newsletter!
         </div>
     @endif
 
@@ -88,12 +88,17 @@
     </div>
 
     <h1>FAQs</h1>
-    <div class="accordion my-4" id="accordionContoh">
-        @forelse ($faqs as $faq)
+
+<div class="accordion my-4" id="accordionContoh">
+    @empty($faqs)
+        <p>No FAQs available.</p>
+    @else
+        @foreach ($faqs as $faq)
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $loop->index }}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="true"
-                        data-bs-target="#collapse{{ $loop->index }}" aria-controls="collapse{{ $loop->index }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        aria-expanded="true" data-bs-target="#collapse{{ $loop->index }}"
+                        aria-controls="collapse{{ $loop->index }}">
                         {{ $faq['question'] }}
                     </button>
                 </h2>
@@ -104,12 +109,9 @@
                     </div>
                 </div>
             </div>
-        @empty
-            <div class="alert alert-danger" role="alert">
-                No FAQs found.
-            </div>
-        @endforelse
-    </div>
+        @endforeach
+    @endempty
+</div>
 @endsection
 
 
