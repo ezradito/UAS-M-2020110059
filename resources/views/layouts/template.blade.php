@@ -45,7 +45,7 @@
                 <a class="p-2 link-secondary" href="#">Politics</a>
                 <a class="p-2 link-secondary" href="#">Opinion</a>
                 <a class="p-2 link-secondary" href="#">Science</a>
-                <a class="p-2 link-secondary" href="#">Health</a>
+                <a class="p-2 link-secondary" href="/transactions">Transaksi</a>
                 <a class="p-2 link-secondary" href="/about">About</a>
                 <a class="p-2 link-secondary" href="/contact-us">Contact-Us</a>
             </nav>

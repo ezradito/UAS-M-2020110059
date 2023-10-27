@@ -1,6 +1,6 @@
 <!-- resources/views/transactions/show.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.App')
 
 @section('content')
     <div class="container">
@@ -12,11 +12,11 @@
         <p><strong>Notes:</strong> {{ $transaction->notes }}</p>
         <p><strong>Created At:</strong> {{ $transaction->created_at }}</p>
 
-        <a href="{{ route('transactions.edit', $transaction->id) }}">Edit</a>
+        <a href="{{ route('transactions.edit', $transaction->id) }}"><button type ='edit'>Edit</button></a>
         <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST" style="display:inline">
             @csrf
             @method('DELETE')
-            <button type="submit">Delete</button>
+            
         </form>
     </div>
 @endsection

@@ -1,9 +1,16 @@
 <!-- resources/views/transactions/index.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.App')
 
 @section('content')
     <div class="container">
+    <h4>
+                Transaction List
+                <small class="float-right">
+                    <a href="{{ route('transactions.index', ['Created At' => 'asc']) }}">Sort Ascending</a>
+                    <a href="{{ route('transactions.index', ['Created At' => 'desc']) }}">Sort Descending</a>
+                </small>
+            </h4>
         <h2>Daftar Transaksi</h2>
 
         <div class="mb-3">
@@ -21,7 +28,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>No</th>
                     <th>Amount</th>
                     <th>Type</th>
                     <th>Category</th>
@@ -40,8 +47,7 @@
                     <td>{{ $transaction->notes }}</td>
                     <td>{{ $transaction->created_at }}</td>
                     <td>
-                        <a href="{{ route('transactions.show', $transaction->id) }}">Show</a>
-                        <a href="{{ route('transactions.edit', $transaction->id) }}">Edit</a>
+                        <a href="{{ route('transactions.show', $transaction->id) }}"> <button type="show">Show</button></a>
                         <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST" style="display:inline">
                             @csrf
                             @method('DELETE')
@@ -52,5 +58,11 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="col-md-4">
+            <!-- Add additional content in the sidebar if needed -->
+            <a href="{{ route('transactions.create') }}" class="btn btn-primary">New Transaction</a>
+        </div>
     </div>
 @endsection

@@ -1,6 +1,6 @@
 <!-- resources/views/transactions/edit.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.App')
 
 @section('content')
     <div class="container">

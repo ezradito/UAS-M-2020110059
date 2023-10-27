@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\BooksController;
+use App\Http\Controllers\TransactionController;
 
 Route::resource('books', BooksController::class);
+Route::resource('/transactions', TransactionController::class);
 
 
 Route::get('/contact-us', [ContactController::class, 'index']);
@@ -18,6 +19,7 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/', function () {
     return view('landing');
 });
+
 
 Route::get('/home', function () {
     return "<h1>Ini Home!</h1>";
@@ -105,4 +107,9 @@ Route::get('/about', function () {
         ]
     ];
     return view('about', compact('title', 'description', 'button', 'sponsors'));
+
+    
+    
+    
+
 });
