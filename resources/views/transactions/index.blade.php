@@ -7,8 +7,8 @@
     <h4>
                 Transaction List
                 <small class="float-right">
-                    <a href="{{ route('transactions.index', ['Created At' => 'asc']) }}">Sort Ascending</a>
-                    <a href="{{ route('transactions.index', ['Created At' => 'desc']) }}">Sort Descending</a>
+                    <a href="{{ route('transactions.index', ['created_at' => 'asc']) }}"></a>
+                    <a href="{{ route('transactions.index', ['created ' => 'desc']) }}"></a>
                 </small>
             </h4>
         <h2>Daftar Transaksi</h2>

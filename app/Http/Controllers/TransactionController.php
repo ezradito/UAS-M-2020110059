@@ -10,7 +10,9 @@ class TransactionController extends Controller
     public function index()
     {
         // Fetch transactions and order them by created_at in ascending order
+        $transactions = Transaction::all();
         $transactions = Transaction::orderBy('created_at', 'asc')->get();
+
 
         // Additional logic for calculating balance, total income, and total expense
         $balance = $transactions->sum('amount');
@@ -18,8 +20,7 @@ class TransactionController extends Controller
         $totalExpense = $transactions->where('type', 'expense')->sum('amount');
         $incomeCount = $transactions->where('type', 'income')->count();
         $expenseCount = $transactions->where('type', 'expense')->count();
-        $transaction = Transaction::all();
-        $transaction = Transaction::orderBy('created_at', 'asc')->get();
+        
 
         return view('transactions.index', compact('transactions', 'balance', 'totalIncome', 'totalExpense', 'incomeCount', 'expenseCount'));
     }
