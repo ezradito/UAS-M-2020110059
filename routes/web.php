@@ -5,6 +5,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\FallbackController;
 
 Route::resource('books', BooksController::class);
 Route::resource('/transactions', TransactionController::class);
@@ -20,6 +22,9 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/', function () {
+    return view('landing');
+})->name('home');
 
 Route::get('/home', function () {
     return "<h1>Ini Home!</h1>";
@@ -63,9 +68,7 @@ Route::prefix('/admin')->group(function () {
     });
 });
 
-Route::fallback(function () {
-    return "Wah kamu nyasar, turn back!";
-});
+Route::fallback([FallbackController::class, 'fallback'])->name('fallback');
 
 
 Route::get('/about', function () {
@@ -108,8 +111,12 @@ Route::get('/about', function () {
     ];
     return view('about', compact('title', 'description', 'button', 'sponsors'));
 
-    
-    
-    
-
 });
+
+
+
+Route::get('/signup', [RegisterController::class, 'showRegistrationForm']);
+Route::post('/login', [RegisterController::class, 'register']);
+
+//Route::post('/signup', [AuthController::class, 'signup']);
+//Route::post('/login', [AuthController::class, 'login']);

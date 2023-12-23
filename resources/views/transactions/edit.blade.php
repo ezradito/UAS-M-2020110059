@@ -1,10 +1,10 @@
 <!-- resources/views/transactions/edit.blade.php -->
 
-@extends('layouts.App')
+@extends('layouts.template')
 
 @section('content')
     <div class="container">
-        <h2>Edit Transaksi</h2>
+        <h2><center>Edit Transaksi</center></h2>
 
         <form action="{{ route('transactions.update', $transaction->id) }}" method="POST">
             @csrf

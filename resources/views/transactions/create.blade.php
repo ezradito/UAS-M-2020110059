@@ -1,10 +1,10 @@
 <!-- resources/views/transactions/create.blade.php -->
 
-@extends('layouts.App')
+@extends('layouts.template')
 
 @section('content')
     <div class="container">
-        <h2>Tambah Transaksi Baru</h2>
+        <h2><center>Tambah Transaksi Baru</center></h2>
 
         <form action="{{ route('transactions.store') }}" method="POST">
             @csrf

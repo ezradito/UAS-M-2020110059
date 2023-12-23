@@ -1,17 +1,18 @@
 <!-- resources/views/transactions/index.blade.php -->
 
-@extends('layouts.App')
+@extends('layouts.template')
+
+@section('title', 'Transaksi')
 
 @section('content')
     <div class="container">
     <h4>
-                Transaction List
                 <small class="float-right">
                     <a href="{{ route('transactions.index', ['created_at' => 'asc']) }}"></a>
                     <a href="{{ route('transactions.index', ['created ' => 'desc']) }}"></a>
                 </small>
             </h4>
-        <h2>Daftar Transaksi</h2>
+            <center><h2>Daftar Transaksi</h2></center>
 
         <div class="mb-3">
             Saldo: {{ $balance }}
